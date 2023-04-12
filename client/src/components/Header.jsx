@@ -24,25 +24,27 @@ function Header() {
   const username = userinfo?.username;
   return (
     <header>
-      <Link to="/" className="logo">
-        MyBlog
-      </Link>
-      <nav>
-        {username ? (
-          <>
-            <Link to={"/create"}>Create new Post</Link>
-            {
-              // eslint-disable-next-line
-              <a onClick={logout}>Logout</a>
-            }
-          </>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </>
-        )}
-      </nav>
+      <div className="nav-content">
+        <Link to="/" className="logo">
+          MyBlog
+        </Link>
+        <nav>
+          {username ? (
+            <>
+              <Link to={"/create"}>Create new Post</Link>
+              {
+                // eslint-disable-next-line
+                <a onClick={logout}>Logout</a>
+              }
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
+            </>
+          )}
+        </nav>
+      </div>
     </header>
   );
 }
