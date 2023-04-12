@@ -1,27 +1,27 @@
 import React from "react";
+import { formatISO9075 } from "date-fns";
+import { Link } from "react-router-dom";
 
-function Post() {
+function Post({ _id, title, summary, cover, content, createdAt, author }) {
   return (
     <div className="post">
       <div className="image">
-        <img
-          src="https://miro.medium.com/v2/resize:fit:828/0*7o1nPtr260CgeJ-Z"
-          alt=""
-        />
+        <Link to={`/post/${_id}`}>
+          <img src={`${process.env.REACT_APP_API}/${cover}`} alt="" />
+        </Link>
       </div>
       <div className="texts">
-        <h2>AI and the American Smile</h2>
+        <Link to={`/post/${_id}`}>
+          <h2>{title}</h2>
+        </Link>
         <p className="info">
-          <a href="temp" className="author">
-            fake name
-          </a>
-          <time>01-01-2023 16:37:57</time>
+          {
+            // eslint-disable-next-line
+            <a className="author">{author.username}</a>
+          }
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className="summary">
-          Imagine a time traveler journeyed to various times and places
-          throughout human history and showed soldiers and warriors of the
-          periods what a “selfie” is
-        </p>
+        <p className="summary">{summary}</p>
       </div>
     </div>
   );
