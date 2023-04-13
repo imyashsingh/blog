@@ -27,24 +27,28 @@ const RegisterPage = () => {
     return <Navigate to={"/"} />;
   }
   return (
-    <form className="register" onSubmit={register}>
-      <h1>Register</h1>
-      <input
-        type="text"
-        placeholder="username"
-        name="username"
-        value={username}
-        onChange={(ev) => setUsername(ev.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        name="password"
-        value={password}
-        onChange={(ev) => setPassword(ev.target.value)}
-      />
-      <button type="submit">Register</button>
-    </form>
+    <div className="post-scroll">
+      <div className="main-content">
+        <form className="register" onSubmit={register}>
+          <h1>Register</h1>
+          <input
+            type="text"
+            placeholder="username"
+            name="username"
+            value={username}
+            onChange={(ev) => setUsername(ev.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            value={password}
+            onChange={(ev) => setPassword(ev.target.value)}
+          />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
   );
 };
 

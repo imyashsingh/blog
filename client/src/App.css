@@ -10,11 +10,6 @@ body {
 img {
   max-width: 100%;
 }
-main {
-  padding: 10px;
-  max-width: 960px;
-  margin: 147px auto;
-}
 
 header {
   border-bottom: 3px solid;
@@ -26,7 +21,7 @@ header {
   position: fixed;
   top: 0;
   background-color: #fff;
-  z-index: 100;
+  z-index: 1;
 }
 
 header nav a {
@@ -55,6 +50,19 @@ div.nav-content nav {
   display: flex;
   gap: 15px;
   padding-right: 10px;
+}
+
+div.post-scroll {
+  overflow-y: scroll;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+div.main-content {
+  width: 940px;
+  margin-top: 80px;
+  padding: 50px;
 }
 
 div.post {

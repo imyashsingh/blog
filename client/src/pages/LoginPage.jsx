@@ -30,30 +30,32 @@ const LoginPage = () => {
   };
 
   return (
-    <>
-      {redirect ? (
-        <Navigate to={"/"} />
-      ) : (
-        <form className="login" onSubmit={login}>
-          <h1>Login</h1>
-          <input
-            type="text"
-            placeholder="username"
-            name="username"
-            value={username}
-            onChange={(ev) => setUsername(ev.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            value={password}
-            onChange={(ev) => setPassword(ev.target.value)}
-          />
-          <button type="submit">Login</button>
-        </form>
-      )}
-    </>
+    <div className="post-scroll">
+      <div className="main-content">
+        {redirect ? (
+          <Navigate to={"/"} />
+        ) : (
+          <form className="login" onSubmit={login}>
+            <h1>Login</h1>
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              value={username}
+              onChange={(ev) => setUsername(ev.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={password}
+              onChange={(ev) => setPassword(ev.target.value)}
+            />
+            <button type="submit">Login</button>
+          </form>
+        )}
+      </div>
+    </div>
   );
 };
 

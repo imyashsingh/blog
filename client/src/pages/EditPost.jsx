@@ -45,25 +45,29 @@ const EditPost = () => {
     return <Navigate to={"/post/" + id} />;
   }
   return (
-    <form onSubmit={updatePost}>
-      <input
-        type="title"
-        placeholder="Title"
-        value={title}
-        onChange={(ev) => setTitle(ev.target.value)}
-        required
-      />
-      <input
-        type="summary"
-        placeholder="Summary"
-        value={summary}
-        onChange={(ev) => setSummary(ev.target.value)}
-        required
-      />
-      <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
-      <Editor value={content} onChange={setContent} />
-      <button style={{ marginTop: "5px" }}>Update Post</button>
-    </form>
+    <div className="post-scroll">
+      <div className="main-content">
+        <form onSubmit={updatePost}>
+          <input
+            type="title"
+            placeholder="Title"
+            value={title}
+            onChange={(ev) => setTitle(ev.target.value)}
+            required
+          />
+          <input
+            type="summary"
+            placeholder="Summary"
+            value={summary}
+            onChange={(ev) => setSummary(ev.target.value)}
+            required
+          />
+          <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+          <Editor value={content} onChange={setContent} />
+          <button style={{ marginTop: "5px" }}>Update Post</button>
+        </form>
+      </div>
+    </div>
   );
 };
 

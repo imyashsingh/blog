@@ -108,11 +108,14 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
 });
 
 app.get("/post", async (req, res) => {
+  const skip = req.query.skip ? Number(req.query.skip) : 0;
+  const DEFAULT_LIMIT = 10;
   res.json(
     await Post.find()
       .populate("author", ["username"])
       .sort({ createdAt: -1 })
-      .limit(20)
+      .skip(skip)
+      .limit(DEFAULT_LIMIT)
   );
 });
 
