@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   const register = async (ev) => {
     ev.preventDefault();
@@ -15,11 +17,15 @@ const RegisterPage = () => {
     });
     if (response.status === 200) {
       alert("Registration Successful");
+      setRedirect(true);
     } else {
-      alert("Registration Failed");
+      alert("Invalid credentials");
     }
   };
 
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <form className="register" onSubmit={register}>
       <h1>Register</h1>

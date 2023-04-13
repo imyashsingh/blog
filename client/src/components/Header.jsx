@@ -31,7 +31,7 @@ function Header() {
         <nav>
           {username ? (
             <>
-              <Link to={"/create"}>Create new Post</Link>
+              <Link to={"/create"}>Create New Post</Link>
               {
                 // eslint-disable-next-line
                 <a onClick={logout}>Logout</a>

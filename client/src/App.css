@@ -28,6 +28,11 @@ header {
   background-color: #fff;
   z-index: 100;
 }
+
+header nav a {
+  font-weight: 500;
+}
+
 div.nav-content {
   display: flex;
   justify-content: space-between;

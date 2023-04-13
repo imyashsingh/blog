@@ -51,12 +51,14 @@ const EditPost = () => {
         placeholder="Title"
         value={title}
         onChange={(ev) => setTitle(ev.target.value)}
+        required
       />
       <input
         type="summary"
         placeholder="Summary"
         value={summary}
         onChange={(ev) => setSummary(ev.target.value)}
+        required
       />
       <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
       <Editor value={content} onChange={setContent} />
