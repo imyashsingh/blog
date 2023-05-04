@@ -18,7 +18,6 @@ const app = express();
 
 const PORT = process.env.PORT || 4000;
 var salt = bcrypt.genSaltSync(10);
-
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(cookieParser());

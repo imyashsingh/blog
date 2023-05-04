@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
+import { HOST } from "../host";
 
 function Header() {
   const { userinfo, setUserinfo } = useContext(UserContext);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/profile`, {
+    fetch(`${HOST}/profile`, {
       credentials: "include",
       method: "GET",
     })
@@ -15,7 +16,7 @@ function Header() {
   }, []);
 
   const logout = () => {
-    fetch(`${process.env.REACT_APP_API}/logout`, {
+    fetch(`${HOST}/logout`, {
       credentials: "include",
       method: "POST",
     });

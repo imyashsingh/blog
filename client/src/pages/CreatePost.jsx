@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "../components/Editor";
+import { HOST } from "../host";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -8,7 +9,6 @@ const CreatePost = () => {
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
-
   const createNewPost = async (ev) => {
     ev.preventDefault();
     const data = new FormData();
@@ -16,7 +16,7 @@ const CreatePost = () => {
     data.set("summary", summary);
     data.set("content", content);
     data.set("file", files[0]);
-    const response = await fetch(`${process.env.REACT_APP_API}/post`, {
+    const response = await fetch(`${HOST}/post`, {
       method: "POST",
       body: data,
       credentials: "include",

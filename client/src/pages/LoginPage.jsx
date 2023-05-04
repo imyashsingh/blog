@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
+import { HOST } from "../host";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +12,7 @@ const LoginPage = () => {
 
   const login = async (ev) => {
     ev.preventDefault();
-    const response = await fetch(`${process.env.REACT_APP_API}/login`, {
+    const response = await fetch(`${HOST}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

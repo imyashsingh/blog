@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { HOST } from "../host";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ const RegisterPage = () => {
 
   const register = async (ev) => {
     ev.preventDefault();
-    const response = await fetch(`${process.env.REACT_APP_API}/register`, {
+    const response = await fetch(`${HOST}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

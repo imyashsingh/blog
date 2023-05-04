@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Post from "../components/Post";
+import { HOST } from "../host";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -9,9 +10,8 @@ const IndexPage = () => {
     console.log(posts);
     // eslint-disable-next-line
   }, [skip]);
-
   const fetchData = async () => {
-    await fetch(`${process.env.REACT_APP_API}/post?skip=${skip}`)
+    await fetch(`${HOST}/post?skip=${skip}`)
       .then((response) => response.json())
       .then((post) => setPosts([...posts, ...post]));
   };

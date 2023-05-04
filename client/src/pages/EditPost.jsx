@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../components/Editor";
+import { HOST } from "../host";
 
 const EditPost = () => {
   const { id } = useParams();
@@ -9,9 +10,8 @@ const EditPost = () => {
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
-
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/post/${id}`)
+    fetch(`${HOST}/post/${id}`)
       .then((response) => response.json())
       .then((postInfo) => {
         setTitle(postInfo.title);
@@ -31,7 +31,7 @@ const EditPost = () => {
     if (files?.[0]) {
       data.set("file", files?.[0]);
     }
-    const response = await fetch(`${process.env.REACT_APP_API}/post`, {
+    const response = await fetch(`${HOST}/post`, {
       method: "PUT",
       body: data,
       credentials: "include",

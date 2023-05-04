@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import DeletePost from "./DeletePost";
+import { HOST } from "../host";
 
 const PostPage = () => {
   const [postInfo, setPostInfo] = useState(null);
@@ -11,7 +12,7 @@ const PostPage = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/post/${id}`)
+    fetch(`${HOST}/post/${id}`)
       .then((response) => response.json())
       .then((postInfo) => setPostInfo(postInfo));
     // eslint-disable-next-line
@@ -51,10 +52,7 @@ const PostPage = () => {
             </div>
           )}
           <div className="image">
-            <img
-              src={`${process.env.REACT_APP_API}/${postInfo.cover}`}
-              alt=""
-            />
+            <img src={`${HOST}/${postInfo.cover}`} alt="" />
           </div>
           <div
             className="content"

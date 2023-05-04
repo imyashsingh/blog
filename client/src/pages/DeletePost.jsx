@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { HOST } from "../host";
 
 const DeletePost = ({ id }) => {
   const [redirect, setRedirect] = useState(false);
-
   const handleDelete = async (ev) => {
     ev.stopPropagation();
-    const response = await fetch(`${process.env.REACT_APP_API}/post/${id}`, {
+    const response = await fetch(`${HOST}/post/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

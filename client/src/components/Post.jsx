@@ -1,13 +1,14 @@
 import React from "react";
 import { formatISO9075 } from "date-fns";
 import { Link } from "react-router-dom";
+import { HOST } from "../host";
 
 function Post({ _id, title, summary, cover, content, createdAt, author }) {
   return (
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-          <img src={`${process.env.REACT_APP_API}/${cover}`} alt="" />
+          <img src={`${HOST}/${cover}`} alt="" />
         </Link>
       </div>
       <div className="texts">
