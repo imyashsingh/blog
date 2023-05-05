@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Post from "../components/Post";
 import { HOST } from "../host";
+import logo from "../assets/Loading_icon.gif";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -26,10 +27,15 @@ const IndexPage = () => {
   return (
     <div onScroll={handleScroll} className="post-scroll">
       <div className="main-content">
-        {posts.length > 0 &&
+        {posts.length > 0 ? (
           posts.map((post, index) => (
             <Post key={`${index}+${post._id}`} {...post} />
-          ))}
+          ))
+        ) : (
+          <div id="load-container">
+            <img id="loading" src={logo} alt="loading..." />
+          </div>
+        )}
       </div>
     </div>
   );

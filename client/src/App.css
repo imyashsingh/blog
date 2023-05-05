@@ -215,3 +215,13 @@ form.register h1 {
 a {
   cursor: pointer;
 }
+
+#load-container {
+  display: flex;
+  justify-content: center;
+}
+
+#loading {
+  width: 250px;
+  margin-top: 150px;
+}
